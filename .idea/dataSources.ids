@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - opinionpolls@localhost" uuid="46983c8f-e36c-4ee4-b08c-e1c95d249541">
+    <database-info product="MySQL" version="5.5.5-10.1.13-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="opinionpolls">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="androidmastermind"/>
+      <schema id="3" name="information_schema"/>
+      <schema id="4" name="mysql"/>
+      <schema id="5" name="performance_schema"/>
+      <schema id="6" name="phpmyadmin"/>
+      <schema id="7" name="report"/>
+      <schema id="8" name="test"/>
+      <table id="9" parent="1" name="counties"/>
+      <table id="10" parent="1" name="users"/>
+      <table id="11" parent="1" name="vote_dates"/>
+      <column id="12" parent="9" name="county_name">
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <column id="13" parent="9" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
+      </column>
+      <column id="14" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <index id="15" parent="9" name="counties_county_name_uindex">
+        <columns>county_name</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="16" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="17" parent="9" name="counties_county_name_uindex">
+        <columns>county_name</columns>
+        <underlying-index>counties_county_name_uindex</underlying-index>
+      </key>
+      <column id="18" parent="10" name="id_number">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="19" parent="10" name="email">
+        <data-type>varchar(50)|0</data-type>
+      </column>
+      <column id="20" parent="10" name="password">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="21" parent="10" name="joined_date">
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
+      </column>
+      <column id="22" parent="10" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
+      </column>
+      <column id="23" parent="10" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <index id="24" parent="10" name="users_id_number_uindex">
+        <columns>id_number</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="25" parent="10" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="26" parent="10" name="users_id_number_uindex">
+        <columns>id_number</columns>
+        <underlying-index>users_id_number_uindex</underlying-index>
+      </key>
+      <column id="27" parent="11" name="id_number">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="28" parent="11" name="last_vote_date">
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
+      </column>
+      <column id="29" parent="11" name="created_at">
+        <mandatory>1</mandatory>
+        <data-type>timestamp|0</data-type>
+        <default-expression>CURRENT_TIMESTAMP</default-expression>
+      </column>
+      <column id="30" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <index id="31" parent="11" name="vote_dates_users_id_number_fk">
+        <columns>id_number</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="32" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="33" parent="11" name="vote_dates_users_id_number_fk">
+        <columns>id_number</columns>
+        <ref-key>~.users.users_id_number_uindex</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
